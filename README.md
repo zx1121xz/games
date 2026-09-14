@@ -2,7 +2,7 @@
 
 一个**纯前端**的五子棋小游戏：不依赖任何框架、不需要后端、没有构建步骤，克隆下来用浏览器打开 `index.html` 就能玩。
 
-线上地址（开启 Gitee Pages 后）：`https://zxd3.gitee.io/games/`
+在线试玩：**<https://zx1121xz.github.io/games/>**（GitHub Pages）
 
 ## 功能
 
@@ -53,15 +53,21 @@ node tests/test.js
 
 覆盖内容：四个方向的五连判定、长连、落子/悔棋、终局锁定，以及 AI 的「一步成五」「活三扩四」「封堵四连」「封堵活三」等战术表现、AI 不修改调用方棋盘、自对弈冒烟测试。
 
-## 部署到 Gitee Pages（生成可直接访问的网址）
+## 部署 / 在线访问
 
-1. 打开仓库页面 <https://gitee.com/zxd3/games>，进入 **服务 → Gitee Pages**；
-2. 分支选择 `master`，部署目录留空（或填 `/`）；
-3. 点击 **启动**（首次使用需完成实名认证）；
-4. 部署完成后即可通过 `https://zxd3.gitee.io/games/` 访问。
+本项目是纯静态页面，托管到任意静态服务（GitHub Pages、Vercel、Netlify、Nginx…）都能直接跑。
 
-> 注意：Gitee Pages 的每次代码更新后需要在同一页面点击「更新」重新部署。
-> 若暂时无法开启 Pages，也可以把仓库导入到 GitHub Pages / Vercel / Netlify 等任意静态托管，或直接在本地打开 `index.html`。
+**GitHub Pages（当前使用）**
+
+- 仓库：<https://github.com/zx1121xz/games>
+- 发布配置：Settings → Pages → Source 选择 `Deploy from a branch`，分支 `main`、目录 `/ (root)`
+- 访问地址：<https://zx1121xz.github.io/games/>
+
+之后每次推送到 `main` 分支，Pages 会自动重新构建，通常 1 分钟内生效。
+
+**Gitee 镜像**
+
+代码同步镜像在 <https://gitee.com/zxd3/games>（Gitee Pages 已下线，仅作代码镜像，不再提供网页访问）。
 
 ## 规则说明
 
