@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="description" content="纯前端五子棋：支持人机对战与双人对战，无需后端，打开网页即可玩。" />
+<meta name="theme-color" content="#2b2118" />
+<title>五子棋 · Gomoku</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23dcb35c'/%3E%3Ccircle cx='11' cy='11' r='5' fill='%23111'/%3E%3Ccircle cx='21' cy='21' r='5' fill='%23fff' stroke='%23999'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="app">
+  <aside class="panel">
+    <header class="brand">
+      <h1>五子棋</h1>
+      <p class="subtitle">Gomoku · 纯网页版</p>
+    </header>
+
+    <section class="card">
+      <h2>对局设置</h2>
+      <div class="field">
+        <label>模式</label>
+        <div class="segmented" id="modeGroup" role="tablist">
+          <button type="button" class="seg is-active" data-mode="pve">人机对战</button>
+          <button type="button" class="seg" data-mode="pvp">双人对战</button>
+        </div>
+      </div>
+      <div class="field" id="sideField">
+        <label>我方执子</label>
+        <div class="segmented" id="sideGroup">
+          <button type="button" class="seg is-active" data-side="1">黑棋（先手）</button>
+          <button type="button" class="seg" data-side="2">白棋（后手）</button>
+        </div>
+      </div>
+      <div class="field" id="levelField">
+        <label>AI 难度</label>
+        <div class="segmented" id="levelGroup">
+          <button type="button" class="seg" data-level="easy">简单</button>
+          <button type="button" class="seg is-active" data-level="medium">普通</button>
+          <button type="button" class="seg" data-level="hard">困难</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card status-card">
+      <div class="turn">
+        <span class="stone-dot" id="turnDot"></span>
+        <span id="statusText">黑棋先行</span>
+      </div>
+      <div class="hint" id="hintText">在棋盘交叉点上落子，先连成五子者胜。</div>
+    </section>
+
+    <section class="card">
+      <h2>操作</h2>
+      <div class="actions">
+        <button type="button" id="undoBtn" class="btn">悔棋 <kbd>Ctrl+Z</kbd></button>
+        <button type="button" id="restartBtn" class="btn btn-primary">重新开始 <kbd>R</kbd></button>
+      </div>
+      <div class="score">
+        <div><span class="score-num" id="blackWins">0</span><span class="score-label">黑胜</span></div>
+        <div><span class="score-num" id="whiteWins">0</span><span class="score-label">白胜</span></div>
+        <div><span class="score-num" id="drawCount">0</span><span class="score-label">和棋</span></div>
+      </div>
+      <button type="button" id="soundBtn" class="btn btn-ghost" aria-pressed="true">🔊 落子音效：开</button>
+    </section>
+
+    <footer class="foot">
+      <p>规则：15×15 棋盘，黑先白后，横、竖、斜任意方向先连成五子获胜。</p>
+    </footer>
+  </aside>
+
+  <main class="board-wrap">
+    <div class="board-box" id="boardBox">
+      <canvas id="board" aria-label="五子棋棋盘"></canvas>
+      <div class="banner" id="banner" role="status" aria-live="polite"></div>
+      <div class="thinking" id="thinking"><span class="spinner"></span>AI 思考中…</div>
+    </div>
+  </main>
+</div>
+
+<script src="js/gomoku.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>

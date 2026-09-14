@@ -1,0 +1,11 @@
+# 依赖与构建产物（本项目本身无需依赖）
+node_modules/
+dist/
+build/
+
+# 编辑器 / 系统文件
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
