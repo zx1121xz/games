@@ -60,10 +60,10 @@ node tests/test.js
 **GitHub Pages（当前使用）**
 
 - 仓库：<https://github.com/zx1121xz/games>
-- 发布配置：Settings → Pages → Source 选择 `Deploy from a branch`，分支 `main`、目录 `/ (root)`
+- 发布配置：Settings → Pages → Source 选择 `GitHub Actions`，由 `.github/workflows/deploy-pages.yml` 自动发布
 - 访问地址：<https://zx1121xz.github.io/games/>
 
-之后每次推送到 `main` 分支，Pages 会自动重新构建，通常 1 分钟内生效。
+之后每次推送到 `main` 分支都会自动重新部署，通常 1 分钟内生效。
 
 **Gitee 镜像**
 
